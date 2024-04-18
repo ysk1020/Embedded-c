@@ -14,7 +14,6 @@ This repository contains C embedded code for various tasks, primarily focused on
 **Description:** Toggles the state of four LEDs in sequence - red, yellow, green, and blue - with a specified delay between each toggle. The LEDs blink continuously in the specified sequence until the program is terminated.
 
 # Lab 2: Push buttons:
-
 This repository contains C embedded code for various tasks involving push button presses and LED toggling on STM32 microcontrollers.
 
 ## Task 1: Blink LED After Button Presses
@@ -40,3 +39,17 @@ This repository contains C embedded code for various tasks involving push button
 
 **Description:** Use EXTI to toggle the LED if the push button was shortly pressed. If the button is pressed and held for 5 seconds, the LED should start blinking.
 
+# Lab 4: Timer and PWM:
+This repository contains C embedded code for various tasks involving LED toggling, button checking, and PWM control on STM32 microcontrollers.
+
+## Task 1: Toggle LEDs with Different Frequencies
+
+**Description:** Write code to toggle three LEDs. Toggle one LED with a frequency of 1Hz inside the while loop and toggle the other two LEDs with frequencies of 10Hz and 20Hz using two different Timer interrupts (TIM14 and TIM16).
+
+## Task 2: Check User Button
+
+**Description:** Write code to check the user button. If the button is pressed once, the LED is ON for about 10 seconds and then OFF. If the button is pressed twice, the LED blinks for 5 seconds and then turns OFF.
+
+## Task 3: Change LED Brightness using PWM
+
+**Description:** Write code to change the brightness of two LEDs using PWM. The frequency is set to 1 kHz, and the duty cycle changes every 20 milliseconds from 20% to 100% and then back down.
