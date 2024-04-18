@@ -1,8 +1,72 @@
 # C Embedded Labs
 This repository contains C embedded code for various tasks, primarily focused on STM32 microcontrollers.
 
-## Task 1: Toggle LEDs
-Description: Toggles three LEDs with different frequencies using software delays and Timer interrupts.
+# Task 1: Toggle All LEDs
+
+**Description:** Toggles all LEDs connected to the microcontroller pin.
+
+```c
+while (1) {
+    // Toggle all LEDs
+    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_8);
+    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+    HAL_Delay(1000); // Delay for 1 second
+}
+```
+
+## Task 2: Blink LEDs Alternately
+
+**Description:** Blinks four LEDs alternately with a variable blinking period. The blinking period can be adjusted using the debugger.
+
+```c
+int delay = 1000;
+
+while (1) {
+    // Toggle RED and GREEN LEDs
+    HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+    HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+    HAL_Delay(delay); // Delay based on the variable 'delay'
+    HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+    HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+
+    // Toggle YELLOW and BLUE LEDs
+    HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+    HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
+    HAL_Delay(delay); // Delay based on the variable 'delay'
+    HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+    HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
+}
+```
+
+## Task 3: Sequential LED Blinking
+
+**Description:** Toggles the state of four LEDs in sequence - red, yellow, green, and blue - with a specified delay between each toggle. The LEDs blink continuously in the specified sequence until the program is terminated.
+
+```c
+int delay = 1000;
+
+while (1) {
+    HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin); 
+    HAL_Delay(delay); 
+    HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+
+    HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin); 
+    HAL_Delay(delay); 
+    HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+
+    HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin); 
+    HAL_Delay(delay); 
+    HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+
+    HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin); 
+    HAL_Delay(delay);
+    HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
+}
+```
+
+Feel free to expand or modify this README to include more details or instructions as needed.
 
 ## Task 2: Blink LEDs Alternately
 Description: Blinks four LEDs alternately with a variable blinking period. The blinking period can be adjusted using the debugger.
